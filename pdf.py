@@ -13,7 +13,7 @@ bot = telebot.TeleBot(API_TOKEN)
 @bot.message_handler(commands=["start"])
 def strt(message):
 	bot.send_chat_action(message.chat.id, "typing")
-	strtMsg = f"Hey [{message.from_user.first_name}](tg://user?id={message.chat.id})..!!This bot will helps you to generate pdf from your images (renaming supported 🥳)\n\nSend me JPG photos as Telegram media.🙂\n\nWhen you are finished; use /generate to create pdf..😉"
+	strtMsg = f"Hey [{message.from_user.first_name}](tg://user?id={message.chat.id})..!!This bot will helps you to generate pdf from your images (renaming supported 🥳)\n\nSend me JPG photos as Telegram media.🙂\n\nWhen you are finished; use /generate to create pdf..😉. And Also join @botsofficials 😁"
 	key = types.InlineKeyboardMarkup()
 	key.add(types.InlineKeyboardButton("About Dev ❤️", callback_data="strtDevEdt"),types.InlineKeyboardButton("Help 🙄", callback_data="strtHlpEdt"))
 	bot.send_message(message.chat.id, strtMsg, reply_markup=key, parse_mode="Markdown")
@@ -22,10 +22,10 @@ def strt(message):
 def strtMsgEdt(call):
 	edit = call.data
 	if edit == 'strtDevEdt':
-		aboutDev = f'About Dev. \n\nOwNeR By: @nabiIanavab 😜\nUpdate Channel: @nabiIanavab 😇\n\nSource Code: https://github.com/nabilanavab/ilovepdf\n\nJoin @nabiIanavab , if you ❤ this bot. 😃'
+		aboutDev = f'About Dev. \n\nMaintained by: @botsofficials 😜\nUpdate Channel: @botsofficials 😇\n\nSource Code: It's private 😁\n\nJoin @botsofficials , if you ❤ this bot. 😃'
 		bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text = aboutDev)
 	elif edit == 'strtHlpEdt':
-		hlpMsg = f'When you finished sending images use:\n\n🤞 /generate - to get your pdf (By Default: Your pdf name = your Telegram Id) : to find your id hit 👉 /id \n\n🤞 If you want to rename your pdf file..\nSend 👉 /generate fileName\nEg: /generate @nabilanavab✓\n\n🤞To delete your current Queue use:\n👉 /cancel (delete\'s all images from server..🙊)\n\n\nAll the images send to this bot will be sequentially ordered in the generated PDF 😉\n\nSend me an image to get start..😅'
+		hlpMsg = f'When you finished sending images use:\n\n🤞 /generate - to get your pdf (By Default: Your pdf name = your Telegram Id) : to find your id hit 👉 /id \n\n🤞 If you want to rename your pdf file..\nSend 👉 /generate fileName\nEg: /generate Myname✓\n\n🤞To delete your current Queue use:\n👉 /cancel (delete\'s all images from server..🙊)\n\n\nAll the images send to this bot will be sequentially ordered in the generated PDF 😉\n\nSend me an image to get start..😅'
 		bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text = hlpMsg)
 		
 @bot.message_handler(commands=["id"])
@@ -36,7 +36,7 @@ def UsrId(message):
 @bot.message_handler(commands=["help"])
 def hlp(message):
 	bot.send_chat_action(message.chat.id, "typing")
-	hlpMsg = f'When you finished sending images use:\n\n🤞 /generate - to get your pdf (By Default: Your pdf name = your Telegram Id) : to find your id hit 👉 /id \n\n🤞 If you want to rename your pdf file..\nSend 👉 /generate fileName\nEg: /generate @nabilanavab✓\n\n🤞To delete your current Queue use:\n👉 /cancel (delete\'s all images from server..🙊)\n\n\nAll the images send to this bot will be sequentially ordered in the generated PDF 😉\n\nSend me an image to get start..😅'
+	hlpMsg = f'When you finished sending images use:\n\n🤞 /generate - to get your pdf (By Default: Your pdf name = your Telegram Id) : to find your id hit 👉 /id \n\n🤞 If you want to rename your pdf file..\nSend 👉 /generate fileName\nEg: /generate name\n\n🤞To delete your current Queue use:\n👉 /cancel (delete\'s all images from server..🙊)\n\n\nAll the images send to this bot will be sequentially ordered in the generated PDF 😉\n\nSend me an image to get start..😅'
 	bot.send_message(message.chat.id, hlpMsg)
 	
 @bot.message_handler(content_types=['document', 'audio'])
