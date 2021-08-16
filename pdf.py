@@ -13,7 +13,7 @@ bot = telebot.TeleBot(API_TOKEN)
 @bot.message_handler(commands=["start"])
 def strt(message):
 	bot.send_chat_action(message.chat.id, "typing")
-	strtMsg = f"Hey [{message.from_user.first_name}](tg://user?id={message.chat.id})..!!This bot will helps you to generate pdf from your images (renaming supported 🥳)\n\nSend me JPG photos as Telegram media.🙂\n\nWhen you are finished; use /generate to create pdf..😉.And join @botsofficials."
+	strtMsg = f"Hey [{message.from_user.first_name}](tg://user?id={message.chat.id})..!!This bot will helps you to generate pdf from your images (renaming supported 🥳)\n\nSend me JPG photos as Telegram media.🙂\n\nWhen you are finished; use /generate to create pdf..😉./n/njoin @botsofficials."
 	key = types.InlineKeyboardMarkup()
 	key.add(types.InlineKeyboardButton("About Dev ❤️", callback_data="strtDevEdt"),types.InlineKeyboardButton("Help 🙄", callback_data="strtHlpEdt"))
 	bot.send_message(message.chat.id, strtMsg, reply_markup=key, parse_mode="Markdown")
